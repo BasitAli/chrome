@@ -23,7 +23,7 @@ RUN apt-key add /tmp/linux_signing_key.pub \
 
 RUN apt-get clean \
 	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/* \
-	&& usermod -s /bin/bash chrome
+	&& usermod -s /bin/bash
 
 VOLUME ["/home/chrome"]
 
