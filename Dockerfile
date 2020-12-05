@@ -8,6 +8,7 @@ COPY copyables /
 
 RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
+	gnupg2 \
 	fonts-noto-cjk \
 	supervisor \
 	x11vnc \
