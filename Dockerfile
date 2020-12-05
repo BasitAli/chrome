@@ -22,8 +22,7 @@ RUN apt-key add /tmp/linux_signing_key.pub \
 	&& apt install -y /tmp/google-chrome-stable_current_amd64.deb
 
 RUN apt-get clean \
-	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/* \
-	&& usermod -s /bin/bash
+	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/*
 
 VOLUME ["/home/chrome"]
 
