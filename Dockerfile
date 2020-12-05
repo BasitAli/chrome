@@ -12,6 +12,7 @@ RUN apt-get update \
 	fonts-noto-cjk \
 	supervisor \
 	x11vnc \
+	fluxbox \
 	socat
 
 ADD https://dl.google.com/linux/linux_signing_key.pub \
@@ -24,7 +25,16 @@ RUN apt-key add /tmp/linux_signing_key.pub \
 RUN apt-get clean \
 	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/* \
 	&& useradd -m chrome \
-	&& usermod -s /bin/bash chrome
+	&& usermod -s /bin/bash chrome \
+	&& mkdir -p /home/chrome/.fluxbox \
+	&& echo ' \n\
+		session.screen0.toolbar.visible:        false\n\
+		session.screen0.fullMaximization:       true\n\
+		session.screen0.maxDisableResize:       true\n\
+		session.screen0.maxDisableMove: true\n\
+		session.screen0.defaultDeco:    NONE\n\
+	' >> /home/chrome/.fluxbox/init \
+	&& chown -R chrome:chrome /home/chrome/.fluxbox
 
 VOLUME ["/home/chrome"]
 
