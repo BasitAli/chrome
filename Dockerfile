@@ -22,6 +22,7 @@ ADD https://dl.google.com/linux/linux_signing_key.pub \
 RUN apt-key add /tmp/linux_signing_key.pub \
 	&& apt install -y /tmp/google-chrome-stable_current_amd64.deb
 
+RUN apt-get install -y --no-install-recommends xvfb
 RUN apt-get clean \
 	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/* \
 	&& useradd -m chrome \
