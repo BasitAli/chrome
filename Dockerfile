@@ -23,15 +23,7 @@ RUN apt-key add /tmp/linux_signing_key.pub \
 
 RUN apt-get clean \
 	&& rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/* \
-	&& usermod -s /bin/bash chrome \
-	&& echo ' \n\
-		session.screen0.toolbar.visible:        false\n\
-		session.screen0.fullMaximization:       true\n\
-		session.screen0.maxDisableResize:       true\n\
-		session.screen0.maxDisableMove: true\n\
-		session.screen0.defaultDeco:    NONE\n\
-	' >> /home/chrome/.fluxbox/init \
-	&& chown -R chrome:chrome /home/chrome/.config /home/chrome/.fluxbox
+	&& usermod -s /bin/bash chrome
 
 VOLUME ["/home/chrome"]
 
