@@ -15,7 +15,8 @@ RUN apt-get update \
 	supervisor \
 	x11vnc \
 	fluxbox \
-	eterm
+	eterm \
+	socat
 
 ADD https://dl.google.com/linux/linux_signing_key.pub \
 	https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb \
@@ -46,6 +47,7 @@ RUN apt-get clean \
 VOLUME ["/home/chrome"]
 
 EXPOSE 5900
+EXPOSE 9222
 
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
 
